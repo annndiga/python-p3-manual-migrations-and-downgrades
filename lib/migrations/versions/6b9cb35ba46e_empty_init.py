@@ -16,9 +16,9 @@ branch_labels = None
 depends_on = None
 
 
-def upgrade() -> None:
-    pass
+def upgrade():
+    op.alter_column('students', 'old_column_name', new_column_name='new_column_name')
 
 
-def downgrade() -> None:
-    pass
+def downgrade():
+    op.alter_column('students', 'new_column_name', new_column_name='old_column_name')
